@@ -47,11 +47,15 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: rooms',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: roomies',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: chat',
       style: optionStyle,
     ),
   ];
@@ -73,20 +77,24 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            /* title: Text('Home'), */
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            /* title: Text('Business'), */
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
+            icon: Icon(Icons.people),
+            /* title: Text('School'), */
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('School'),
+            icon: Icon(Icons.insert_comment),
+            /* title: Text('School'), */
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.purple[900],
         onTap: _onItemTapped,
       ),
 
