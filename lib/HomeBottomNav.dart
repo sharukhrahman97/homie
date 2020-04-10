@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:homie/Chat.dart';
+import 'package:homie/Home.dart';
+import 'package:homie/Homies.dart';
+import 'package:homie/Rooms.dart';
 void main() => runApp(RoomApp());
 
 class RoomApp extends StatelessWidget {
@@ -15,14 +19,20 @@ class RoomApp extends StatelessWidget {
 
 
 class BottomNavyBar extends StatefulWidget {
+  
   @override
   _BottomNavyBarState createState() => _BottomNavyBarState();
 }
 
 
 class  _BottomNavyBarState extends State<BottomNavyBar> {
-   int _selectedIndex = 0;
-   final List<Widget> _children = [];
+    int _selectedIndex = 0;
+    final List<Widget> _children = [
+      Home(),
+      Rooms(),
+      Homies(),
+      Chat(),
+    ];
  /*  static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -44,7 +54,7 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
     ),
   ];  */
  
-   void _onItemTapped(int index) {
+    void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     }); 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+void main() => runApp(Rooms());
+
 
 class Rooms extends StatefulWidget {
   @override

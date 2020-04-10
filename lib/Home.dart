@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homie/HomeBottomNav.dart';
-void main() => runApp(RoomApp());
+void main() => runApp(Home());
 
 class Home extends StatefulWidget {
   @override

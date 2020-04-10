@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+void main() => runApp(Chat());
+
 class Chat extends StatefulWidget {
   @override
   _ChatState createState() => _ChatState();
