@@ -7,29 +7,12 @@ class RoomApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RoomAppPage()
+      home: BottomNavyBar()
     );
   }
 }
 
-class RoomAppPage extends StatefulWidget {
-  @override
-  _RoomAppPageState createState() => _RoomAppPageState();
-}
 
-class _RoomAppPageState extends State<RoomAppPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 1,
-        title: Image.asset('assets/homeappnavlogo.png',fit: BoxFit.cover),
-
-      ),
-      bottomNavigationBar: BottomNavyBar(),
-    );
-  }
-}
 
 class BottomNavyBar extends StatefulWidget {
   @override
@@ -38,8 +21,9 @@ class BottomNavyBar extends StatefulWidget {
 
 
 class  _BottomNavyBarState extends State<BottomNavyBar> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
+   int _selectedIndex = 0;
+   final List<Widget> _children = [];
+ /*  static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
@@ -58,24 +42,25 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
       'Index 3: chat',
       style: optionStyle,
     ),
-  ];
-
-  void _onItemTapped(int index) {
+  ];  */
+ 
+   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    });
-  }
+    }); 
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        title: const Text('BottomNavigationBar'),
-      ), */
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      appBar: AppBar(
+        elevation: 1,
+        title: Image.asset('assets/homeappnavlogo.png',fit: BoxFit.cover),),
+      body: _children[_selectedIndex],
+      
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        type: BottomNavigationBarType.shifting,
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             /* title: Text('Home'), */
@@ -95,7 +80,7 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.purple[900],
-        onTap: _onItemTapped,
+        onTap:_onItemTapped,
       ),
 
     );
