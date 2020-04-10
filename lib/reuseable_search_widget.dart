@@ -9,7 +9,7 @@ class _SearchCardState extends State<SearchCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(alignment: Alignment(0.0,0.7),
+      body: Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[

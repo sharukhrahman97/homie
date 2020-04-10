@@ -1,22 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:homie/Home.dart';
 import 'package:homie/Chat.dart';
 import 'package:homie/Home.dart';
 import 'package:homie/Homies.dart';
 import 'package:homie/Rooms.dart';
-void main() => runApp(RoomApp());
+void main() => runApp(BottomNav());
 
-class RoomApp extends StatelessWidget {
+class BottomNav extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BottomNavyBar()
+      title: _title,
+      home: BottomNavyBar(),
     );
   }
 }
-
-
 
 class BottomNavyBar extends StatefulWidget {
   
@@ -26,73 +26,55 @@ class BottomNavyBar extends StatefulWidget {
 
 
 class  _BottomNavyBarState extends State<BottomNavyBar> {
-    int _selectedIndex = 0;
-    final List<Widget> _children = [
-      Home(),
-      Rooms(),
-      Homies(),
-      Chat(),
-    ];
- /*  static const TextStyle optionStyle =
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: rooms',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: roomies',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: chat',
-      style: optionStyle,
-    ),
-  ];  */
- 
-    void _onItemTapped(int index) {
+  static  List<Widget> _widgetOptions = <Widget>[
+    Home(),
+    Rooms(),
+    Homies(),
+    Chat(),
+
+  ];
+
+  void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    }); 
-    }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      return Scaffold(
       appBar: AppBar(
-        elevation: 1,
-        title: Image.asset('assets/homeappnavlogo.png',fit: BoxFit.cover),),
-      body: _children[_selectedIndex],
-      
+        title:Text("homy"),),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        items: [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            /* title: Text('Home'), */
+            title: Text("user"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            /* title: Text('Business'), */
+            title: Text("homes"),
+            
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            /* title: Text('School'), */
+            icon: Icon(Icons.group),
+            title: Text("homies"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.insert_comment),
-            /* title: Text('School'), */
+            icon: Icon(Icons.chat),
+            title: Text("chat"),
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.purple[900],
-        onTap:_onItemTapped,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
-
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'reuseable_search_widget.dart';
 void main() => runApp(Rooms());
 
 
@@ -10,8 +11,8 @@ class Rooms extends StatefulWidget {
 class _RoomsState extends State<Rooms> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      body: SearchCard(),
     );
   }
 }
