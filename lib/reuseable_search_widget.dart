@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomeCard extends StatefulWidget {
+class SearchCard extends StatefulWidget {
   @override
-  _HomeCardState createState() => _HomeCardState();
+  _SearchCardState createState() => _SearchCardState();
 }
 
-class _HomeCardState extends State<HomeCard> {
+class _SearchCardState extends State<SearchCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

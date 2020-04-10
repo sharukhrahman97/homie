@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homie/reuseable_search_widget.dart';
 void main() => runApp(Home());
 
 class Home extends StatefulWidget {
@@ -11,7 +12,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold
     (
-      
+      body: SearchCard(),
     );
   }
 }
