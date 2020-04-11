@@ -13,6 +13,7 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
+      theme: ThemeData(primaryColor: Colors.purple[900]),
       home: BottomNavyBar(),
     );
   }
@@ -72,7 +73,8 @@ class  _BottomNavyBarState extends State<BottomNavyBar> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.purple[900],
+        unselectedItemColor: Colors.grey[500],
         onTap: _onItemTapped,
       ),
     );
