@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homie/Chat.dart';
+import 'package:homie/Filters.dart';
 import 'package:homie/Home.dart';
 import 'package:homie/LookingForARoom.dart';
 import 'package:homie/LookingForARoomate.dart';
@@ -44,7 +45,7 @@ class Homescreen extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(35, 8, 35, 8),
                   color: Color(0xff5F34A7),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNav()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Filter()));
                   },
                   child: Text('Looking for a room ?',
                       style: TextStyle(fontSize: 20, color: Colors.white))
