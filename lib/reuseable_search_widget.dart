@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homie/Filter.dart';
 
 class SearchCard extends StatefulWidget {
   @override
@@ -50,7 +51,10 @@ class _SearchCardState extends State<SearchCard> {
                     child: Text("Filter"),
                   ),
                   onPressed: () {
-                    //TODO: Filter full dialog
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Filter()),
+                    );
                   },
                 ),
               ),
