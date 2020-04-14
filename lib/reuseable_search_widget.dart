@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homie/Filter.dart';
+import 'package:homie/sort.dart';
 
 class SearchCard extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class SearchCard extends StatefulWidget {
 }
 
 class _SearchCardState extends State<SearchCard> {
+  Sort sort = new Sort();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +40,7 @@ class _SearchCardState extends State<SearchCard> {
                   child: Center(
                     child: Text("Sort"),
                   ),
-                  onPressed: () {
-                    //TODO: popup dialog
-                  },
+                  onPressed: () => sort.mainBottomSheet(context),
                 ),
               ),
               ButtonTheme(
