@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homie/Filter.dart';
 import 'package:homie/sort.dart';
 
+
 class SearchCard extends StatefulWidget {
   @override
   _SearchCardState createState() => _SearchCardState();
@@ -9,6 +10,7 @@ class SearchCard extends StatefulWidget {
 
 class _SearchCardState extends State<SearchCard> {
   Sort sort = new Sort();
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class _SearchCardState extends State<SearchCard> {
                 height: 50.0,
                 child: OutlineButton(
                   child: Center(
-                    child: Text("Sort"),
+                    child: Text("Sort",),
                   ),
                   onPressed: () => sort.mainBottomSheet(context),
                 ),

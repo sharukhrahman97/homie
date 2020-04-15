@@ -8,28 +8,20 @@ class Sort {
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _createTile(
-                context,
-                'Sort by Price',
+              ListTile(
+                title: Text("sort by availablity"),
+                onTap: () {
+                  Navigator.pop(context); //yet to code for server
+                },
               ),
-              _createTile(
-                context,
-                'Sort by Availablity',
+              ListTile(
+                title: Text("sort by price"),
+                onTap: () {
+                  Navigator.pop(context); //yet to code for server
+                },
               ),
             ],
           );
         });
-  }
-
-  ListTile _createTile(
-    BuildContext context,
-    String name,
-  ) {
-    return ListTile(
-      title: Text(name),
-      onTap: () {
-        Navigator.pop(context);//yet to code for server
-      },
-    );
   }
 }
