@@ -78,14 +78,12 @@ class _DummyListState extends State<DummyList> {
                       child: PageView.builder(
                           controller: PageController(viewportFraction: 0.9),
                           itemBuilder: (BuildContext context, int itemIndex) {
-                            return Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/image1.jpg')),
-                                ),
-                              ),
+                            return Container(
+                              child: Image.network("https://picsum.photos/seed/picsum/500/380"),
+                              /* decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage('https://picsum.photos/seed/picsum/250/300')),
+                              ), */
                             );
                           })
 
