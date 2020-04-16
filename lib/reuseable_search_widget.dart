@@ -10,7 +10,6 @@ class SearchCard extends StatefulWidget {
 
 class _SearchCardState extends State<SearchCard> {
   Sort sort = new Sort();
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

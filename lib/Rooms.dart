@@ -24,12 +24,46 @@ class _RoomsState extends State<Rooms> {
   }
 }
 
-class DummyList extends StatelessWidget {
+class DummyList extends StatefulWidget {
+  @override
+  _DummyListState createState() => _DummyListState();
+}
+
+class _DummyListState extends State<DummyList> {
+  final List images = [
+    "assets/image1.jpg",
+    "assets/image2.jpg",
+    "assets/image3.jpg",
+    "assets/image4.jpg",
+  ];
+
+  int currentIndex = 0;
+
+  void _next() {
+    setState(() {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = currentIndex;
+      }
+    });
+  }
+
+  void _previous() {
+    setState(() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
       padding: const EdgeInsets.all(4.0),
-      itemBuilder: (context, i) {
+      itemBuilder: (BuildContext context, i) {
         return new Card(
             semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -41,19 +75,39 @@ class DummyList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.network(
-                  'https://picsum.photos/400/300?random=1',
+                Container(
+                  child: GestureDetector(
+                    onHorizontalDragEnd: (DragEndDetails details) {
+                      if (details.velocity.pixelsPerSecond.dx > 0) {
+                        _previous();
+                      } else if (details.velocity.pixelsPerSecond.dx < 0) {
+                        _next();
+                      }
+                    },
+                    child: Container(
+                      height: 300,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(images[currentIndex][0]),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                Align(
+                Container(
                   alignment: Alignment.centerLeft,
                   child: Container(
                     child: Text("HOMY GRG1507 Sector 01"),
                   ),
                 ),
-                Align(
+                Container(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    child: Text("Jharsa Village, Sector 01, Gurgaon",textScaleFactor: .8,),
+                    child: Text(
+                      "Jharsa Village, Sector 01, Gurgaon",
+                      textScaleFactor: .8,
+                    ),
                   ),
                 ),
                 Container(

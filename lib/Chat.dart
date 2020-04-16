@@ -7,12 +7,14 @@ import 'dart:convert';
 void main() => runApp(Chat());
 
 class Chat extends StatefulWidget {
+
   @override
   _ChatState createState() => _ChatState();
 }
 
 class _ChatState extends State<Chat> {
-  String url = "https://randomuser.me/api/?results=15";
+  
+  String url = "https://randomuser.me/api/?results=25";
   List data;
   Future<String> makeRequest() async {
     var response = await http
@@ -28,7 +30,6 @@ class _ChatState extends State<Chat> {
   void initState() {
     this.makeRequest();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,14 +45,18 @@ class _ChatState extends State<Chat> {
             child: new Container(
                 child: new Scaffold(
               body: new ListView.builder(
+                
                   itemCount: data == null ? 0 : data.length,
                   itemBuilder: (BuildContext context, i) {
-                    return new ListTile(
-                      title: new Text(data[i]["name"]["first"]),
-                      subtitle: new Text(data[i]["phone"]),
-                      leading: new CircleAvatar(
-                        backgroundImage:
-                            new NetworkImage(data[i]["picture"]["thumbnail"]),
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: new ListTile(
+                        title: new Text(data[i]["name"]["title"]+"."+data[i]["name"]["first"]+" "+data[i]["name"]["last"]),
+                        subtitle: new Text("available from "+data[i]["registered"]["date"]+"\nBudget around 10k"),
+                        leading: new CircleAvatar(
+                          backgroundImage:
+                              new NetworkImage(data[i]["picture"]["thumbnail"]),
+                        ),
                       ),
                     );
                   }),
@@ -60,6 +65,7 @@ class _ChatState extends State<Chat> {
     ));
   }
 }
+
 
 /* class DummyList extends StatelessWidget {
   @override
