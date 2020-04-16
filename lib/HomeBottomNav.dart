@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homie/Home.dart';
 import 'package:homie/Chat.dart';
-import 'package:homie/Home.dart';
 import 'package:homie/Homies.dart';
 import 'package:homie/Rooms.dart';
+
 void main() => runApp(BottomNav());
 
 class BottomNav extends StatelessWidget {

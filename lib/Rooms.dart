@@ -30,22 +30,22 @@ class DummyList extends StatefulWidget {
 }
 
 class _DummyListState extends State<DummyList> {
-  final List<List<String>> images = [
-    ['assets/images/image1.jpg'],
-    ['assets/images/image2.jpg'],
-    ['assets//images/image3.jpg'],
-    ['assets/images/image4.jpg'],
-  ];
+  /* final List<String> images = [
+    'assets/images/image1.jpg',
+    'assets/images/image2.jpg',
+    'assets//images/image3.jpg',
+    'assets/images/image4.jpg',
+  ]; */
 
-  int currentIndex = 0;
+  /* int currentIndex = 0; */
 
-  void _next() {
+/*   void _next() {
     setState(() {
       if (currentIndex < images.length - 1) {
         currentIndex++;
-      } else {
+      } /* else {
         currentIndex = currentIndex;
-      }
+      } */
     });
   }
 
@@ -53,30 +53,41 @@ class _DummyListState extends State<DummyList> {
     setState(() {
       if (currentIndex > 0) {
         currentIndex--;
-      } else {
+      } /* else {
         currentIndex = 0;
-      }
+      } */
     });
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-      padding: const EdgeInsets.all(4.0),
       itemBuilder: (BuildContext context, i) {
-        return new Card(
-            semanticContainer: true,
+        return Card(
             clipBehavior: Clip.antiAliasWithSaveLayer,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            elevation: 0,
-            margin: EdgeInsets.all(10),
+            elevation: 5,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  child: GestureDetector(
+                SizedBox(
+                  height: 200,
+                    child: PageView.builder(
+                        controller: PageController(viewportFraction: 0.7),
+                        itemBuilder: (BuildContext context, int itemIndex) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/image1.jpg')),
+                              ),
+                            ),
+                          );
+                        })
+
+                    /* child: GestureDetector(
                     onHorizontalDragEnd: (DragEndDetails details) {
                       if (details.velocity.pixelsPerSecond.dx > 0) {
                         _previous();
@@ -84,90 +95,105 @@ class _DummyListState extends State<DummyList> {
                         _next();
                       }
                     },
-                    child: Container(
-                      height: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(images[currentIndex][0]),
-                          fit: BoxFit.cover,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(images[currentIndex]),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
+                  ), */
+                    ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Container(
-                    child: Text("HOMY GRG1507 Sector 01"),
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      child: Text("HOMY GRG1507 Sector 1$i"),
+                    ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.centerLeft,
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Container(
-                    child: Text(
-                      "Jharsa Village, Sector 01, Gurgaon",
-                      textScaleFactor: .8,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        Container(child: Text("unisex")),
-                        Icon(Icons.wc)
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(child: Text("Occupancy")),
-                        Container(
-                          child: Text("Shared & Private"),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(child: Text("Hosted by")),
-                        Icon(Icons.person)
-                      ],
-                    )
-                  ],
-                )),
-                Container(
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      side: BorderSide(
-                        width: 1,
-                        color: Colors.grey,
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      child: Text(
+                        "Jharsa Village, Sector 1$i, Gurgaon",
+                        textScaleFactor: .8,
                       ),
                     ),
                   ),
-                  child: Row(
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
                         children: [
-                          Text("Starting at"),
-                          Text("RS:5000"),
+                          Container(child: Text("unisex")),
+                          Icon(Icons.wc)
                         ],
                       ),
-                      FlatButton(
-                        onPressed: () {
-                          /*.. */
-                        },
-                        color: Colors.purple[900],
-                        textColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0)),
-                        child: Text("Schedule a Visit"),
+                      Column(
+                        children: [
+                          Container(child: Text("Occupancy")),
+                          Container(
+                            child: Text("Shared & Private"),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(child: Text("Hosted by")),
+                          Icon(Icons.person)
+                        ],
                       )
                     ],
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                        side: BorderSide(
+                          width: 1,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text("Starting at"),
+                            Text("RS:5000"),
+                          ],
+                        ),
+                        FlatButton(
+                          onPressed: () {
+                            /*.. */
+                          },
+                          color: Colors.purple[900],
+                          textColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(5.0)),
+                          child: Text("Schedule a Visit"),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
