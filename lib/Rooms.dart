@@ -30,11 +30,11 @@ class DummyList extends StatefulWidget {
 }
 
 class _DummyListState extends State<DummyList> {
-  final List images = [
-    "assets/image1.jpg",
-    "assets/image2.jpg",
-    "assets/image3.jpg",
-    "assets/image4.jpg",
+  final List<List<String>> images = [
+    ['assets/images/image1.jpg'],
+    ['assets/images/image2.jpg'],
+    ['assets//images/image3.jpg'],
+    ['assets/images/image4.jpg'],
   ];
 
   int currentIndex = 0;
