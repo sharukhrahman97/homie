@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'choice.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
                           shape: RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(18.0),
                               side: BorderSide(color: Colors.purple[900])),
-                          onPressed: () => null,
+                          onPressed: () => Navigator.push(context,new MaterialPageRoute(builder: (context)=> Choice()),)
                         ),
                         new FlatButton(
                           child: new Text("Sign up"),
