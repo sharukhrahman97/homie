@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homie/inroom.dart';
 import 'reuseable_search_widget.dart';
 
 void main() => runApp(Rooms());
@@ -74,17 +75,20 @@ class _DummyListState extends State<DummyList> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 250,
+                      height: 250,
                       child: PageView.builder(
                           controller: PageController(viewportFraction: 0.9),
                           itemBuilder: (BuildContext context, int itemIndex) {
                             return Container(
-                              child: Image.network("https://picsum.photos/seed/picsum/500/380"),
-                              /* decoration: BoxDecoration(
+                                child: Image.network(
+                              "https://picsum.photos/seed/picsum/500/380",
+                              fit: BoxFit.contain,
+                            )
+                                /* decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage('https://picsum.photos/seed/picsum/250/300')),
                               ), */
-                            );
+                                );
                           })
 
                       /* child: GestureDetector(
@@ -184,7 +188,10 @@ class _DummyListState extends State<DummyList> {
                           ),
                           FlatButton(
                             onPressed: () {
-                              /*.. */
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Inroom()));
                             },
                             color: Colors.purple[900],
                             textColor: Colors.white,
