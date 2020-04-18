@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:homie/choice.dart';
 import 'package:homie/main.dart';
 import 'package:homie/ChooseLocationPage.dart';
 
@@ -62,7 +63,7 @@ class LookingForARoom extends StatelessWidget {
                         color: Colors.white,
                         padding: EdgeInsets.fromLTRB(-5, 10, -5, 10),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Homescreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Choice()));
                         },
                       )
                   )
@@ -176,7 +177,7 @@ class LookingForARoom extends StatelessWidget {
               height: 60,
               child: RaisedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseLocationPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>null()));
                 },
                 color: Color(0xff5F34A7),
                 textColor: Colors.white,
