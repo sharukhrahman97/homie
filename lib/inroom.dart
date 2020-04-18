@@ -11,6 +11,30 @@ class _InroomState extends State<Inroom> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
+          elevation: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0)),
+                textColor: Colors.white,
+                child: Text("Chat"),
+                color: Colors.lightGreen,
+                onPressed: (){},
+              ),
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0)),
+                onPressed: (){},
+                textColor: Colors.white,
+                child: Text("Schedule a Visit"),
+                color: Colors.purple[900],
+              )
+            ],
+          )),
       appBar: new AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
@@ -79,7 +103,7 @@ class _Inroom_BodyState extends State<Inroom_Body> {
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [ 
+                  children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

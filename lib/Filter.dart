@@ -85,7 +85,7 @@ class _FilterItemsState extends State<FilterItems> {
             children: [
               Text("HOUSE TYPE"),
               ToggleButtons(
-                
+                borderColor: Colors.transparent,
                 selectedColor: Colors.purple[900],
                 children: <Widget>[
                   Column(

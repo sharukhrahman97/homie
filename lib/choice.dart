@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HomeBottomNav.dart';
+import 'package:homie/LookingForARoom.dart';
 
 class Choice extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class Choice extends StatelessWidget {
                 children: [
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(context,new MaterialPageRoute(builder: (context)=> BottomNav()),);
+                      Navigator.push(context,new MaterialPageRoute(builder: (context)=> LookingForARoom()),);
                     },
                     child: Text("Looking for a Room?"),
                     color: Colors.purple[900],
@@ -32,7 +32,7 @@ class Choice extends StatelessWidget {
                       "Post your requirements and a room owner will find you!"),
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(context,new MaterialPageRoute(builder: (context)=> BottomNav()),);
+                      Navigator.push(context,new MaterialPageRoute(builder: (context)=> LookingForARoom()),);
                     },
                     child: Text("Looking for a Roomate?"),
                     color: Colors.purple[900],

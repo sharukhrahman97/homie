@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:homie/choice.dart';
-import 'package:homie/main.dart';
-import 'package:homie/ChooseLocationPage.dart';
-
+import 'package:homie/HomeBottomNav.dart';
 
 void main() {
   runApp(MaterialApp(home: LookingForARoom()));
@@ -24,11 +21,14 @@ class LookingForARoom extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     alignment: Alignment(-1.5, 0),
-                    width:250,
+                    width: 250,
                     height: 30,
-                    child: Text('SELECT TAGS',
+                    child: Text(
+                      'SELECT TAGS',
                       style: TextStyle(
-                        fontSize: 30,fontWeight: FontWeight.bold,fontFamily: 'Calibri',
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Calibri',
                         color: Color(0xff5F34A7),
                       ),
                       textAlign: TextAlign.left,
@@ -38,22 +38,23 @@ class LookingForARoom extends StatelessWidget {
                     width: 295,
                     height: 20,
                     alignment: Alignment(-1, -5),
-                    child: Text('And find your matching Room/Mate!',
+                    child: Text(
+                      'And find your matching Room/Mate!',
                       style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
-                          fontFamily: 'Calibri'
-                      ),
+                          fontFamily: 'Calibri'),
                     ),
-                  )],
+                  )
+                ],
               ),
               Row(
                 children: <Widget>[
                   Container(
                       alignment: Alignment(20, 0),
-                      width : 50,
+                      width: 50,
                       height: 50,
                       child: FlatButton(
                         child: Icon(
@@ -63,10 +64,12 @@ class LookingForARoom extends StatelessWidget {
                         color: Colors.white,
                         padding: EdgeInsets.fromLTRB(-5, 10, -5, 10),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Choice()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BottomNav()));
                         },
-                      )
-                  )
+                      ))
                 ],
               )
             ],
@@ -105,17 +108,17 @@ class LookingForARoom extends StatelessWidget {
                       Container(
                         alignment: Alignment(20, 0),
                         width: 70,
-                        child:Container(
+                        child: Container(
                           child: FlatButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.grey)
-                            ),
+                                side: BorderSide(color: Colors.grey)),
                             onPressed: () {},
                             color: Colors.white,
                             textColor: Colors.black,
                             child: Text('TAGS',
-                                style: TextStyle(fontSize: 14,fontFamily: 'Calibri')),
+                                style: TextStyle(
+                                    fontSize: 14, fontFamily: 'Calibri')),
                           ),
                           width: 80,
                         ),
@@ -129,7 +132,8 @@ class LookingForARoom extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40.0),
                     border: Border.all(
-                      color: Color(0xff5F34A7), //                   <--- border color
+                      color: Color(
+                          0xff5F34A7), //                   <--- border color
                       width: 2.0,
                     ),
                   ),
@@ -137,60 +141,55 @@ class LookingForARoom extends StatelessWidget {
               ),
             ],
           ),
-          Column(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment(0, 100),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left:8.0),
-                    child: Align
-                      (
-                      alignment: Alignment(0, 0),
-                      child: Container(
-                          height: 482.5,
-                          width: 410,
-                          child: Wrap(
-                            spacing: 5.0,
-                            runSpacing: 3.0,
-                            children: <Widget>[
-                              filterChipWidget(chipName: 'Gamer'),
-                              filterChipWidget(chipName: 'Biker'),
-                              filterChipWidget(chipName: 'Anime'),
-                              filterChipWidget(chipName: 'Photography'),
-                              filterChipWidget(chipName: 'Cat-friendly'),
-                              filterChipWidget(chipName: 'Dog-friendly'),
-                              filterChipWidget(chipName: 'Vegetarian'),
-                              filterChipWidget(chipName: 'Spiritual'),
-                              filterChipWidget(chipName: 'K-pop'),
-                              filterChipWidget(chipName: 'Signing'),
-                              filterChipWidget(chipName: 'Rational'),
-                              filterChipWidget(chipName: 'Sensitive'),
-                            ],
-                          )
-                      ),
-                    ),
-                  ),
+          Column(children: <Widget>[
+            Container(
+              alignment: Alignment(0, 100),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Align(
+                  alignment: Alignment(0, 0),
+                  child: Container(
+                      height: 482.5,
+                      width: 410,
+                      child: Wrap(
+                        spacing: 5.0,
+                        runSpacing: 3.0,
+                        children: <Widget>[
+                          filterChipWidget(chipName: 'Gamer'),
+                          filterChipWidget(chipName: 'Biker'),
+                          filterChipWidget(chipName: 'Anime'),
+                          filterChipWidget(chipName: 'Photography'),
+                          filterChipWidget(chipName: 'Cat-friendly'),
+                          filterChipWidget(chipName: 'Dog-friendly'),
+                          filterChipWidget(chipName: 'Vegetarian'),
+                          filterChipWidget(chipName: 'Spiritual'),
+                          filterChipWidget(chipName: 'K-pop'),
+                          filterChipWidget(chipName: 'Signing'),
+                          filterChipWidget(chipName: 'Rational'),
+                          filterChipWidget(chipName: 'Sensitive'),
+                        ],
+                      )),
                 ),
-              ]),
+              ),
+            ),
+          ]),
           Container(
               alignment: Alignment(0.8, 0),
               height: 60,
               child: RaisedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>null()));
+                  Navigator.push(context, new MaterialPageRoute(builder: (context) => BottomNav()),);
                 },
                 color: Color(0xff5F34A7),
                 textColor: Colors.white,
                 child: Text('FIND MATCH',
-                    style: TextStyle(fontSize: 14,fontFamily: 'Calibri')),
-              )
-          )
+                    style: TextStyle(fontSize: 14, fontFamily: 'Calibri')),
+              ))
         ],
       ),
     );
   }
 }
-
 
 // ignore: camel_case_types
 class filterChipWidget extends StatefulWidget {
@@ -210,7 +209,10 @@ class _filterChipWidgetState extends State<filterChipWidget> {
   Widget build(BuildContext context) {
     return FilterChip(
       label: Text(widget.chipName),
-      labelStyle: TextStyle(color: Color(0xff6200ee),fontSize: 16.0,fontWeight: FontWeight.bold),
+      labelStyle: TextStyle(
+          color: Color(0xff6200ee),
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold),
       selected: _isSelected,
       shape: StadiumBorder(side: BorderSide()),
       backgroundColor: Colors.transparent,
@@ -219,6 +221,7 @@ class _filterChipWidgetState extends State<filterChipWidget> {
           _isSelected = isSelected;
         });
       },
-      selectedColor: Color(0xffeadffd),);
+      selectedColor: Color(0xffeadffd),
+    );
   }
 }
